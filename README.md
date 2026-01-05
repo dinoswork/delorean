@@ -36,11 +36,11 @@ Uncomment or modify example lines to customize which folders to back up:
     `#SOURCES=("$HOME/Pictures")`
 
 Destination:
-    `DEST="/Volumes/SFA-All/User Data/$(whoami)/"`
+`DEST="/Volumes/SFA-All/User Data/$(whoami)/"`
 
-    or
+or
 
-    `DEST="/Volumes/$(whoami)/SYSTEM/delorean/"`
+`DEST="/Volumes/$(whoami)/SYSTEM/delorean/"`
 Change this to your network drive or backup location. `$(whoami)` automatically uses the current username.
 
 Log file:
