@@ -470,6 +470,21 @@
 			<key>VERSION</key>
 			<integer>5</integer>
 		</dict>
+		<key>PACKAGE_SCRIPTS</key>
+		<dict>
+			<key>POSTINSTALL_PATH</key>
+			<dict>
+				<key>PATH_TYPE</key>
+				<integer>0</integer>
+			</dict>
+			<key>PREINSTALL_PATH</key>
+			<dict>
+				<key>PATH_TYPE</key>
+				<integer>0</integer>
+			</dict>
+			<key>RESOURCES</key>
+			<array/>
+		</dict>
 		<key>PACKAGE_SETTINGS</key>
 		<dict>
 			<key>AUTHENTICATION</key>
@@ -495,7 +510,7 @@
 			<key>USE_HFS+_COMPRESSION</key>
 			<false/>
 			<key>VERSION</key>
-			<string>1.0</string>
+			<string>1.2</string>
 		</dict>
 		<key>PROJECT_COMMENTS</key>
 		<dict>
@@ -508,9 +523,9 @@
 			<key>BUILD_PATH</key>
 			<dict>
 				<key>PATH</key>
-				<string>/Users/robertb/delorean/DeLorean exports</string>
+				<string>DeLorean exports/EM</string>
 				<key>PATH_TYPE</key>
-				<integer>0</integer>
+				<integer>1</integer>
 			</dict>
 			<key>EXCLUDED_FILES</key>
 			<array>

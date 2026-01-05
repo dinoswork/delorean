@@ -22,11 +22,11 @@ For development:
 ### Configurable Variables (at the top of sync_files.sh)
 
 Backup scheduling:
-    scheduledBackupTime="09:15"    # Daily backup time (24-hour format)
-    rangeStart="07:00"             # Earliest time backups can run
-    rangeEnd="21:00"               # Latest time backups can run
-    frequencyCheck="60"            # How often to check for backups (seconds)
-    maxDayAttemptNotification=6    # Max failure notifications per day
+    `scheduledBackupTime="09:15"`    # Daily backup time (24-hour format)
+    `rangeStart="07:00"`             # Earliest time backups can run
+    `rangeEnd="21:00"`               # Latest time backups can run
+    `frequencyCheck="60"`            # How often to check for backups (seconds)
+    `maxDayAttemptNotification=6`    # Max failure notifications per day
 
 Source directories:
     `SOURCES=("$HOME/Pictures" "$HOME/Documents" "$HOME/Downloads" "$HOME/Desktop")`
@@ -36,19 +36,21 @@ Uncomment or modify example lines to customize which folders to back up:
     `#SOURCES=("$HOME/Pictures")`
 
 Destination:
-    DEST="/Volumes/SFA-All/User Data/$(whoami)/"
+
+`DEST="/Volumes/SFA-All/User Data/$(whoami)/"` or `DEST="/Volumes/$(whoami)/SYSTEM/delorean/"`
+
 Change this to your network drive or backup location. `$(whoami)` automatically uses the current username.
 
 Log file:
-    LOG_FILE="$HOME/delorean.log"
+    `LOG_FILE="$HOME/delorean.log"`
 Location where backup logs are stored.
 
 ### Example Customization
 
 Back up only Documents and Pictures to a different network drive at 6 PM:
-    SOURCES=("$HOME/Documents" "$HOME/Pictures")
-    DEST="/Volumes/BackupDrive/Users/$(whoami)/"
-    scheduledBackupTime="18:00"
+    `SOURCES=("$HOME/Documents" "$HOME/Pictures")`
+    `DEST="/Volumes/BackupDrive/Users/$(whoami)/"`
+    `scheduledBackupTime="18:00"`
 
 ## Notes for Users
 
@@ -84,7 +86,7 @@ After installing DeLorean, you'll **really** want to consider granting it Full D
 
 ### Important System Requirements
 
-- **macOS 12.0 (Monterey) or later** recommended
+- **macOS 13.5 (Ventura) or later** recommended
 - DeLorean automatically launches at login to perform scheduled backups
 - Network drive must be mounted before backup attempts
 

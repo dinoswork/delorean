@@ -88,13 +88,25 @@ class StatusMenuController: NSObject {
                 if self.isUserInitiatedAbort {
                     self.isUserInitiatedAbort = false
                 } else {
-                    let success = process.terminationStatus == 0
-                    if success {
-                        self.notifyUser(title: "Backup Completed", informativeText: "Your files have been successfully backed up.")
+                    let exitCode = process.terminationStatus
+                    let isManual = (NSApplication.shared.delegate as? AppDelegate)?.isManualBackup ?? false
+                    if exitCode == 0 {
+                        // Perfect success
+                        if isManual {
+                            self.notifyUser(title: "Backup Completed",
+                                            informativeText: "Your files have been successfully backed up.")
+                        }
+                    } else if exitCode == 2 {
+                        // Success with warnings (only manual backups use this code)
+                        self.notifyUser(title: "Backup Completed",
+                                        informativeText: "Your files have been backed up, but some files could not be copied due to unsupported characters or length. Check delorean.log for details.")
                     } else {
-                        self.notifyUser(title: "Backup Failed", informativeText: "There was an issue with the backup process.")
+                        // Real failure
+                        self.notifyUser(title: "Backup Failed",
+                                        informativeText: "There was an issue with the backup process.")
                     }
-                    // Pass success status to AppDelegate
+                    // Treat exit 2 as success for AppDelegate tracking
+                    let success = (exitCode == 0 || exitCode == 2)
                     NotificationCenter.default.post(name: .backupDidFinish, object: nil, userInfo: ["success": success])
                     return
                 }

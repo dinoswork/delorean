@@ -26,7 +26,7 @@ SOURCES=("$HOME/Pictures" "$HOME/Documents" "$HOME/Downloads" "$HOME/Desktop")
 
 # Define destination directory
 DEST="/Volumes/SFA-All/User Data/$(whoami)/"
-# DEST="/Volumes/$(whoami)/SYSTEM/delorean/"
+#DEST="/Volumes/$(whoami)/SYSTEM/delorean/"
 mkdir -p "$DEST"
 
 # Log files
