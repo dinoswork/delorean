@@ -36,7 +36,11 @@ Uncomment or modify example lines to customize which folders to back up:
     `#SOURCES=("$HOME/Pictures")`
 
 Destination:
-    DEST="/Volumes/SFA-All/User Data/$(whoami)/"
+    `DEST="/Volumes/SFA-All/User Data/$(whoami)/"`
+
+    or
+
+    `DEST="/Volumes/$(whoami)/SYSTEM/delorean/"`
 Change this to your network drive or backup location. `$(whoami)` automatically uses the current username.
 
 Log file:
@@ -84,7 +88,7 @@ After installing DeLorean, you'll **really** want to consider granting it Full D
 
 ### Important System Requirements
 
-- **macOS 12.0 (Monterey) or later** recommended
+- **macOS 13.5 (Ventura) or later** recommended
 - DeLorean automatically launches at login to perform scheduled backups
 - Network drive must be mounted before backup attempts
 
